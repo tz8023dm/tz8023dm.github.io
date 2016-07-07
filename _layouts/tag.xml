@@ -1,0 +1,14 @@
+---
+layout: atom
+---
+{% for post in page.posts %}
+<item>
+    <title><![CDATA[{{ post.title }}]]></title>
+    <link>{{ site.address }}{{ site.baseurl }}{{ post.url }}</link>
+    <author><![CDATA[{{ site.author }}]]></author>
+    <pubDate>{{ post.date | date: '%a, %d %b %Y %T %z' }}</pubDate>
+    <dc:date>{{ post.date | date_to_xmlschema }}</dc:date>
+    <guid><![CDATA[{{ post.url }}]]></guid>
+    <description><![CDATA[{{ post.content | strip_html | truncate: 200 }}]]></description>
+</item>
+{% endfor %}
